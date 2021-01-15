@@ -1,0 +1,9 @@
+CREATE TABLE `article` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL,
+  `content` varchar(10000) NOT NULL,
+  `writtenDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `author` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;

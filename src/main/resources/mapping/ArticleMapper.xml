@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ArticleMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.Article">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="writtenDate" jdbcType="VARCHAR" property="writtenDate" />
+        <result column="updateDate" jdbcType="VARCHAR" property="updateDate" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+    </resultMap>
+
+    <select id="getArticle" resultType="com.example.demo.dao.Article">
+        select * from article where id = #{id};
+    </select>
+    <select id="getArticles" resultType="com.example.demo.dao.Article">
+        select * from article
+    </select>
+    <update id="updateArticle" parameterType="com.example.demo.dao.Article">
+        update article set content=#{content}, title=#{title} where id=#{id};
+    </update>
+    <delete id="deleteArticle">
+        delete from article where id=#{id};
+    </delete>
+    <insert id="createArticle" parameterType="com.example.demo.dao.Article">
+        insert into article (title, content, author) value (#{title}, #{content}, #{author});
+    </insert>
+
+</mapper>
